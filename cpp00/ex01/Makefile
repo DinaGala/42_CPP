@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 16:29:12 by nzhuzhle          #+#    #+#              #
-#    Updated: 2024/03/27 21:32:52 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2024/03/27 21:46:44 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ YELLOW = \033[1;33m
 BLUE = \033[1;34m
 BLACK = \033[0;39m
 
-NAME = megaphone
+NAME = AwesomePhoneBook
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
 RM = rm -f
 
-SRC = megaphone.cpp
+SRC = PhoneBook.cpp main.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))
