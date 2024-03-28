@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 16:29:12 by nzhuzhle          #+#    #+#              #
-#    Updated: 2024/03/27 21:46:44 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2024/03/28 21:29:09 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CPP = c++
 FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
 RM = rm -f
 
-SRC = PhoneBook.cpp main.cpp
+SRC = PhoneBook.cpp Contact.cpp main.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))
