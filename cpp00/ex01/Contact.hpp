@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:23:22 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/03/28 22:02:01 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:20:14 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class	Contact
 		~Contact();
 
 		void		setNew();
-
 		std::string	getFirstName() const;
 		std::string	getLastName() const;
 		std::string	getNickName() const;

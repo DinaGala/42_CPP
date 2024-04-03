@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:22:52 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/03/28 22:01:42 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:23:47 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Contact::Contact()
 {
-	std::cout << "Contact constructor called" << std::endl;
+	return ;
 }
 
 Contact::~Contact()
 {
-	std::cout << "Contact DEstructor called" << std::endl;
+	return ;
 }
 
 void	Contact::setNew()
