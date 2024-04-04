@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 21:42:23 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/03 19:35:38 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/04 22:36:57 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	PhoneBook::printContacts() const
 		else
 			std::cout << std::setw(10) << this->_contacts[i].getLastName() << "|";
 		if (this->_contacts[i].getNickName().size() > 10)
-			std::cout << std::setw(9) << this->_contacts[i].getNickName().substr(0, 9) << "." << "|" << std::endl;
+			std::cout << std::setw(9) << this->_contacts[i].getNickName().substr(0, 9) << "." << std::endl;
 		else
-			std::cout << std::setw(10) << this->_contacts[i].getNickName() << "|" << std::endl;
+			std::cout << std::setw(10) << this->_contacts[i].getNickName() << std::endl;
 	}
 }
 
