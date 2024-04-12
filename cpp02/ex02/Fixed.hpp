@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 18:27:46 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/11 20:33:30 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/12 20:49:24 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,30 @@ class Fixed
 		Fixed(const int value);
 		Fixed(const float value);
 		Fixed(const Fixed &other);
-		Fixed& operator=(const Fixed &other);
+		Fixed	&operator=(const Fixed &other);
 		~Fixed();
+
+		Fixed	operator+(const Fixed &other) const;
+		Fixed	operator-(const Fixed &other) const;
+		Fixed	operator*(const Fixed &other) const;
+		Fixed	operator/(const Fixed &other) const;
+
+		Fixed	operator++();
+		Fixed	operator++(int);
+		Fixed	operator--();
+		Fixed	operator--(int);
+
+		bool	operator>(const Fixed &other) const;
+		bool	operator<(const Fixed &other) const;
+		bool	operator>=(const Fixed &other) const;
+		bool	operator<=(const Fixed &other) const;
+		bool	operator==(const Fixed &other) const;
+		bool	operator!=(const Fixed &other) const;
+
+		static Fixed &min( Fixed &nb1, Fixed &nb2);
+		static const Fixed &min(const Fixed &nb1, const Fixed &nb2);
+		static Fixed &max( Fixed &nb1, Fixed &nb2);
+		static const Fixed &max(const Fixed &nb1, const Fixed &nb2);
 		
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
