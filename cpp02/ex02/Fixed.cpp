@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 18:33:02 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/12 20:50:27 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/14 17:22:24 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,33 @@
 
 Fixed::Fixed(): _value(0) 
 {
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::~Fixed() 
 {
-		std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value): _value(value << _frac) 
 {
-	std::cout << "Int constructor called" << std::endl;
+//	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float value): _value(roundf(value * (1 << _frac)))
 {
-	std::cout << "Float constructor called" << std::endl;
+//	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other) 
 {
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	_value = other.getRawBits();
 }
 
 Fixed	&Fixed::operator=(const Fixed &other) 
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		_value = other.getRawBits();
 	return (*this);
@@ -48,13 +48,13 @@ Fixed	&Fixed::operator=(const Fixed &other)
 
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+//	std::cout << "getRawBits member function called" << std::endl;
 	return (_value);
 }
 
 void	Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called" << std::endl;
+//	std::cout << "setRawBits member function called" << std::endl;
 	_value = raw;
 }
 
@@ -108,7 +108,7 @@ Fixed	Fixed::operator++()
 
 Fixed	Fixed::operator++(int)
 {
-	Fixed	temp(_value);
+	Fixed	temp = *this;
 	++_value;
 	return (temp);
 }
@@ -121,7 +121,7 @@ Fixed	Fixed::operator--()
 
 Fixed	Fixed::operator--(int)
 {
-	Fixed	temp(_value);
+	Fixed	temp = *this;
 	--_value;
 	return (temp);
 }
