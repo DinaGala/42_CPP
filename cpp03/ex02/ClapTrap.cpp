@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 20:14:13 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/16 21:27:46 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/16 21:51:49 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ void	ClapTrap::setDamage(unsigned int damage)
 void 	ClapTrap::attack(const std::string& target)
 {
 	if (_energyPoints < 1)
-		std::cout << "ClapTrap " << _name << " cannot attack anyone, he is very tired!" << std::endl << std::endl;
+		std::cout << "ClapTrap " << _name << " cannot attack anyone, he is very tired!" << std::endl;
 	else if (_hitPoints < 1)
-		std::cout << "ClapTrap " << _name << " cannot attack anyone because he is out of hit points! (even though it doesn't make any sense)" << std::endl << std::endl;
+		std::cout << "ClapTrap " << _name << " cannot attack anyone because he is out of hit points! (even though it doesn't make any sense)" << std::endl;
 	else
 	{
-		std::cout << "ClapTrap " << _name << " attacks " << target << " causing " << _attackDamage << " points of damage!" << std::endl  << std::endl;
+		std::cout << "ClapTrap " << _name << " attacks " << target << " causing " << _attackDamage << " points of damage!" << std::endl;
 		_energyPoints--;
 	}
 }
@@ -96,34 +96,34 @@ void 	ClapTrap::attack(const std::string& target)
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_hitPoints < 1)
-		std::cout << "ClapTrap " << _name << " cannot take any damage, because he is out of hit points!" << std::endl << std::endl;
+		std::cout << "ClapTrap " << _name << " cannot take any damage, because he is out of hit points!" << std::endl;
 	else if (_energyPoints < 1)
-		std::cout << "ClapTrap " << _name << " cannot take any damage, he is very tired! (even though it doesn't make any sense)" << std::endl << std::endl;
+		std::cout << "ClapTrap " << _name << " cannot take any damage, he is very tired! (even though it doesn't make any sense)" << std::endl;
 	else
 		std::cout << "ClapTrap " << _name << " took " << amount << " level of damage." << std::endl;
 	if (amount >= _hitPoints && _hitPoints > 0 && _energyPoints > 0)
 	{
-		std::cout << "Now ClapTrap " << _name << " is out of hit points, the damage was too big." << std::endl << std::endl;
+		std::cout << "Now ClapTrap " << _name << " is out of hit points, the damage was too big." << std::endl;
 		_hitPoints = 0;
 	}
 	else if (_hitPoints > 0 && _energyPoints > 0)
 	{
 		_hitPoints -= amount;
-		std::cout << "Now ClapTrap " << _name << " has " << _hitPoints << " hit points." << std::endl << std::endl;
+		std::cout << "Now ClapTrap " << _name << " has " << _hitPoints << " hit points." << std::endl;
 	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_energyPoints < 1)
-		std::cout << "ClapTrap " << _name << " cannot get repaired, he is very tired!" << std::endl << std::endl;
+		std::cout << "ClapTrap " << _name << " cannot get repaired, he is very tired!" << std::endl;
 	else if (_hitPoints < 1)
-		std::cout << "ClapTrap " << _name << " cannot get repaired because he is out of hit points! (even though it doesn't make any sense)" << std::endl << std::endl;
+		std::cout << "ClapTrap " << _name << " cannot get repaired because he is out of hit points! (even though it doesn't make any sense)" << std::endl;
 	else
 	{
 		std::cout << "ClapTrap " << _name << " got repaired " << amount << " hit points." << std::endl;
 		_energyPoints--;
 		_hitPoints += amount;
-		std::cout << "Now ClapTrap " << _name << " has " << _hitPoints << "hit points." << std::endl  << std::endl;
+		std::cout << "Now ClapTrap " << _name << " has " << _hitPoints << "hit points." << std::endl;
 	}
 }
