@@ -6,17 +6,19 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 22:17:34 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/16 22:16:33 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/16 22:59:53 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
 	ClapTrap	bil("Billy");
-	FragTrap	ben("Big Ben");
+	DiamondTrap	ben("Big Ben");
 
 //	bil.setDamage(40);
 	bil.attack(ben.getName());
@@ -36,7 +38,7 @@ int	main(void)
 	bil.beRepaired(7);
 	bil.setEnergy(100);
 
-	ben.highFivesGuys();
+	ben.whoAmI();
 
 	std::cout << std::endl << "                   GAME OVER!!!" << std::endl << std::endl;
 
