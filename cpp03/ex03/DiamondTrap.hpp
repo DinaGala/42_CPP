@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:03:23 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/16 23:17:18 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/17 21:35:43 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ class DiamondTrap: public FragTrap, public ScavTrap
 		std::string		_name;
 
 };
-
 
 #endif

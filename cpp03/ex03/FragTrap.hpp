@@ -6,15 +6,19 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 21:24:23 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/16 22:42:03 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/17 21:30:16 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FragTrap_HPP
-# define FragTrap_HPP
+// #pragma once
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <iostream>
 # include "ClapTrap.hpp"
+# define FRAG_HIT 100
+# define FRAG_ENERGY 100
+# define FRAG_ATTACK 30
 
 class FragTrap: virtual public ClapTrap
 {
@@ -23,9 +27,9 @@ class FragTrap: virtual public ClapTrap
 		FragTrap(std::string name);
 		FragTrap(const FragTrap &other);
 		FragTrap& operator=(const FragTrap &other);
-		~FragTrap();
+		virtual ~FragTrap();
 		
-		void	highFivesGuys(void);
+		void	highFivesGuys(void);	
 
 };
 
