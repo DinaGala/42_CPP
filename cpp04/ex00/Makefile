@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/03 19:44:42 by nzhuzhle          #+#    #+#              #
-#    Updated: 2024/04/18 20:19:46 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2024/04/18 20:38:28 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,13 @@ YELLOW = \033[1;33m
 BLUE = \033[1;34m
 BLACK = \033[0;39m
 
-NAME = DiamondTrap
+NAME = Animal
 CPP = c++
 FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
 RM = rm -f
 
-SRC =  main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC =  Animal.cpp Dog.cpp Cat.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
+
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))
