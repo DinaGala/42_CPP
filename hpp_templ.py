@@ -14,7 +14,7 @@ class {class_name}
 	public:
 		{class_name}();
 		~{class_name}();
-		// {class_name}(ARGS);
+		// {class_name}(std::string const &type);
 		{class_name}(const {class_name} &other);
 		{class_name}& operator=(const {class_name} &other);
 
@@ -34,6 +34,11 @@ impl_template = '''
 {{
 	std::cout << "{class_name} Default constructor called" << std::endl;
 }}
+
+//{class_name}::{class_name}(std::string const &type): _type(type)
+//{{
+//	std::cout << "{class_name} Name constructor called" << std::endl;
+//}}
 
 {class_name}::~{class_name}()
 {{
