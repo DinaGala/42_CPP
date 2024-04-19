@@ -6,25 +6,28 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:23:07 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/19 19:13:57 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:05:12 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(): Animal("Cat")
+Cat::Cat(): AAnimal("Cat")
 {
 	std::cout << "Cat Default constructor called" << std::endl;
+	_catBrain = new Brain();
 }
 
 Cat::~Cat()
 {
 	std::cout << "Cat Default destructor called" << std::endl;
+	delete _catBrain;
 }
 
-Cat::Cat(const Cat &other): Animal("Cat")
+Cat::Cat(const Cat &other): AAnimal("Cat")
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
+	_catBrain = new Brain();
 	*this = other;
 }
 
@@ -34,6 +37,7 @@ Cat	&Cat::operator=(const Cat &other)
 	if (this == &other)
 		return (*this);
 	_type = other._type;
+	*_catBrain = *(other._catBrain);
 	return (*this);
 }
 
@@ -41,4 +45,10 @@ void	Cat::makeSound() const
 {
 	std::cout << "  Meeeeeooooow!  " << std::endl;
 }
+
+Brain	*Cat::getBrain() const
+{
+	return (_catBrain);
+}
+
 
