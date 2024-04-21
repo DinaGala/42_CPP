@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:23:46 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/19 20:11:41 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:20:53 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ class Dog: public AAnimal
 
 		void	makeSound() const;
 		Brain	*getBrain()	const;
+		void	setBrainIdeas(std::string const idea);
+		void	printBrainIdea(int index) const;
+		void	noBrain();
 
 	private:
 		Brain	*_dogBrain;

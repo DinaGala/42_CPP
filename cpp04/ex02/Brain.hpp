@@ -1,22 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/21 15:18:09 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2024/04/21 15:18:12 by nzhuzhle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
-#include <iostream>
-
+# include <iostream>
+# define N 100
 
 class Brain
 {
 	public:
 		Brain();
 		~Brain();
-		// Brain(ARGS);
 		Brain(const Brain &other);
 		Brain& operator=(const Brain &other);
 
-	private:
-		std::string	ideas[100];
+		void	setIdeas(std::string const idea);
+		void	printIdea(int index) const;
 
+	private:
+		std::string	_ideas[N];
     
 };
 

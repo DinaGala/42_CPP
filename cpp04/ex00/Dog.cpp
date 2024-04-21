@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:24:29 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/19 19:14:07 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:39:20 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ Dog	&Dog::operator=(const Dog &other)
 
 void	Dog::makeSound() const
 {
-	std::cout << "  Grrrrrrrrrrrrrrr!  " << std::endl;
+	std::cout << "    Gav! Gav! Gav!    " << std::endl;
 }
 

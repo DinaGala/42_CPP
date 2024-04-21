@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:08:51 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/21 15:14:42 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:32:58 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,24 @@ int	main(int argc, char **argv)
 	tim.printBrainIdea(1);
 	std::cout << "After deleting X and Tim, X is a " << x.getType() << ", and his brain pointer is: " << x.getBrain() << ", his idea is: " << std::endl;
 	x.printBrainIdea(1);
+
+	std::cout << std::endl << "------------ NOW CATS -----------------" << std::endl << std::endl;
+
+	Cat bim;
+	Cat y(bim);
+	Cat bom;
+
+	std::cout << "Bom is a " << bom.getType() << ", and his brain pointer is: " << bom.getBrain() << std::endl;
+	std::cout << "Y is a " << y.getType() << ", and his brain pointer is: " << y.getBrain() << std::endl;
+	bom = y;
+	std::cout << "after assigning Bom is a " << bom.getType() << ", and his brain pointer is: " << bom.getBrain() << std::endl;
+	std::cout << "after assigning Y is a " << y.getType() << ", and his brain pointer is: " << y.getBrain() << std::endl;
+
+	bim.setType("Chihuahua");
+	std::cout << "Bim is a " << bim.getType() << ", and his brain pointer is: " << bim.getBrain() << std::endl;
+	std::cout << "Y is a " << y.getType() << ", and his brain pointer is: " << y.getBrain() << std::endl;
+
+	std::cout << std::endl << "------------ THE END -----------------" << std::endl << std::endl;
 
 	return (0);
 }

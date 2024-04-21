@@ -42,11 +42,6 @@ AAnimal	&AAnimal::operator=(const AAnimal &other)
 	return (*this);
 }
 
-void	AAnimal::makeSound() const
-{
-	std::cout << "  * ANNOING SILENCE *  " << std::endl;
-}
-
 std::string		AAnimal::getType() const
 {
 	return (_type);
@@ -54,5 +49,5 @@ std::string		AAnimal::getType() const
 
 void		AAnimal::setType(std::string type)
 {
-	_type = type;
+	_type = _type + " " + type;
 }

@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:18:51 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/19 19:50:37 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:22:05 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ std::string		Animal::getType() const
 
 void		Animal::setType(std::string type)
 {
-	_type = type;
+	_type = _type + " " + type;
 }

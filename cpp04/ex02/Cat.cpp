@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:23:07 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/19 20:05:12 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:19:31 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Cat::Cat(): AAnimal("Cat")
 Cat::~Cat()
 {
 	std::cout << "Cat Default destructor called" << std::endl;
-	delete _catBrain;
+	if (_catBrain)
+		delete _catBrain;
 }
 
 Cat::Cat(const Cat &other): AAnimal("Cat")

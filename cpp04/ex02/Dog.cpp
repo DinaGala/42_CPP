@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:24:29 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/19 20:05:15 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:21:02 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Dog::Dog(): AAnimal("Dog")
 Dog::~Dog()
 {
 	std::cout << "Dog Default destructor called" << std::endl;
-	delete _dogBrain;
+	if (_dogBrain)
+		delete _dogBrain;
 }
 
 Dog::Dog(const Dog &other): AAnimal("Dog")
@@ -46,8 +47,31 @@ void	Dog::makeSound() const
 	std::cout << "  Gav! Gav! Gav!  " << std::endl;
 }
 
-Brain	*Dog::getBrain()	const
+Brain	*Dog::getBrain() const
 {
 	return (_dogBrain);
+}
+
+void	Dog::setBrainIdeas(std::string const idea)
+{
+	if (_dogBrain)
+		_dogBrain->setIdeas(idea);
+	else
+		std::cout << "This dog doesn't have a brain" << std::endl;
+}
+
+void	Dog::printBrainIdea(int index) const
+{
+	if (_dogBrain)
+		_dogBrain->printIdea(index);
+	else
+		std::cout << "This dog doesn't have a brain" << std::endl;
+}
+
+void	Dog::noBrain()
+{
+	if (_dogBrain)
+		delete _dogBrain;
+	_dogBrain = nullptr;
 }
 
