@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 15:51:17 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/21 16:23:32 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:22:20 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,7 @@ std::string const &AMateria::getType() const
 	return (_type);
 }
 
-void use(ICharacter& target)
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "Unknown Materia cannot do anything to " << target.getName() << std::endl;
+}

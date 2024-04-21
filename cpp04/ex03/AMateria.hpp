@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 15:51:07 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/21 16:07:58 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:38:44 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
-
+# define N 4
 
 class AMateria
 {

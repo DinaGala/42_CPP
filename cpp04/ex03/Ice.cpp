@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:21:44 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/21 16:21:46 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:18:19 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ AMateria* Ice::clone() const
 {
 	std::cout << "Cloning a new Ice Materia" << std::endl;
 	AMateria	*newIce = new Ice(*this);
-	*newIce = *this;
+//	*newIce = *this;
 	return (newIce);
 }
 

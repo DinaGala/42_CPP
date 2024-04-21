@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 16:36:19 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/21 18:32:03 by nzhuzhle         ###   ########.fr       */
+/*   Created: 2024/04/21 18:28:05 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2024/04/21 19:13:35 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
 # include <iostream>
 # include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
 
-class Character: public ICharacter
+class MateriaSource
 {
 	public:
-		Character();
-		~Character();
-		Character(std::string const &name);
-		Character(const Character &other);
-		Character& operator=(const Character &other);
-		
-	//	const AMateria	*getMateria(int idx) const;
-		std::string const & getName() const;
+		MateriaSource();
+		~MateriaSource();
+		MateriaSource(const MateriaSource &other);
+		MateriaSource& operator=(const MateriaSource &other);
 
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
+		void learnMateria(AMateria*);
+		AMateria* createMateria(std::string const &type);
 
-		
-		
 	private:
-		std::string	_name;
-		AMateria	*_slots[N];
+		AMateria	*_library[N];
 		bool 		_checkDups(int idx);
+
     
 };
 

@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:10:37 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/21 16:46:34 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:18:10 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ AMateria* Cure::clone() const
 {
 	std::cout << "Cloning a new Cure Materia" << std::endl;
 	AMateria	*newCure = new Cure(*this);
-	*newCure = *this;
+//	*newCure = *this;
 	return (newCure);
 }
 

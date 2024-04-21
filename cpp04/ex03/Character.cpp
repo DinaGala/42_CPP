@@ -28,7 +28,7 @@ Character::~Character()
 
 bool Character::_checkDups(int idx)
 {
-	if (idx < 0 || idx > 2 || !_slots[idx])
+	if (idx < 0 || idx > N - 1 || !_slots[idx])
 		return (false);
 	for (int i = idx + 1; i < N; i++)
 	{
@@ -53,7 +53,7 @@ Character	&Character::operator=(const Character &other)
 		return (*this);
 	for (int i = 0; i < N; i++)
 	{
-		if (_slots[i])
+		if (_checkDups(i) == true)
 			delete _slots[i];
 		if (!other._slots[i])
 			_slots[i] = nullptr;
@@ -75,18 +75,18 @@ void Character::equip(AMateria* m)
 	}
 	while (_slots[i] && i < N)
 		i++;
-	if (i > 3)
+	if (i > N - 1)
 	{
 		std::cout << "Character " << _name << " cannot equip the Materia " << m->getType() << ", the storage is full." << std::endl;
 		return ;
 	}
 	_slots[i] = m;
-	std::cout << "Character named " << _name << " is equiping a Materia " << m->getType() << std::endl;
+	std::cout << "Character named " << _name << " is equiping a Materia " << m->getType() << " in a slot " << i << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx > 3)
+	if (idx < 0 || idx > N - 1)
 		std::cout << "Character " << _name << " cannot unequip, does not have such a place in the inventory." << std::endl;
 	else if (!_slots[idx])
 		std::cout << "Character " << _name << " cannot unequip an undefined Materia." << std::endl;
@@ -99,7 +99,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx > 3)
+	if (idx < 0 || idx > N - 1)
 		std::cout << "Character " << _name << " cannot use a Materia, does not have such a place in the inventory." << std::endl;
 	else if (!_slots[idx])
 		std::cout << "Character " << _name << " cannot use an undefined Materia." << std::endl;
