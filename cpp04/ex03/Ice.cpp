@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/21 16:21:44 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2024/04/21 16:21:46 by nzhuzhle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "AMateria.hpp"
 #include "Ice.hpp"
@@ -26,4 +38,18 @@ Ice	&Ice::operator=(const Ice &other)
 	_type = other._type;
 	return (*this);
 }
+
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
+
+AMateria* Ice::clone() const
+{
+	std::cout << "Cloning a new Ice Materia" << std::endl;
+	AMateria	*newIce = new Ice(*this);
+	*newIce = *this;
+	return (newIce);
+}
+
 

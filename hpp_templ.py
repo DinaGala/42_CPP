@@ -6,7 +6,7 @@ class_template = '''
 #ifndef {class_name_upper}_HPP
 #define {class_name_upper}_HPP
 
-#include <iostream>
+# include <iostream>
 
 
 class {class_name}
