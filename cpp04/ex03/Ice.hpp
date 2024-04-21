@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:21:35 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/21 16:21:37 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 19:18:34 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Ice: public AMateria
 	public:
 		Ice();
 		~Ice();
-		// Ice(ARGS);
 		Ice(const Ice &other);
 		Ice& operator=(const Ice &other);
 

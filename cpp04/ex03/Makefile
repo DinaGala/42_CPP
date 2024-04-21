@@ -10,7 +10,7 @@ CPP = c++
 FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
 RM = rm -f
 
-SRC =  main.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp IMateriaSource.cpp
+SRC =  main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))

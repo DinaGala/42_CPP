@@ -1,28 +1,41 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/21 19:15:45 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2024/04/21 21:19:24 by nzhuzhle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character(): _name("Noname")
 {
-	std::cout << "Character Default constructor called" << std::endl;
+//	std::cout << "Character Default constructor called" << std::endl;
 	for (int i = 0; i < N; i++)
 		_slots[i] = NULL;
 }
 
 Character::Character(std::string const &name): _name(name)
 {
-	std::cout << "Character Name constructor called" << std::endl;
+//	std::cout << "Character Name constructor called" << std::endl;
 	for (int i = 0; i < N; i++)
 		_slots[i] = NULL;
 }
 
 Character::~Character()
 {
-	std::cout << "Character Default destructor called" << std::endl;
+	std::cout << "Character " << _name << " Default destructor called" << std::endl;
 	for (int i = 0; i < N; i++)
 	{
 		if (_checkDups(i) == true)
+		{
 			delete _slots[i];
+			_slots[i] = nullptr;
+		}
 	}
 }
 
@@ -40,7 +53,7 @@ bool Character::_checkDups(int idx)
 
 Character::Character(const Character &other)
 {
-	std::cout << "Character Copy constructor called" << std::endl;
+//	std::cout << "Character Copy constructor called" << std::endl;
 	for (int i = 0; i < N; i++)
 		_slots[i] = NULL;
 	*this = other;
@@ -48,7 +61,7 @@ Character::Character(const Character &other)
 
 Character	&Character::operator=(const Character &other) 
 {
-	std::cout << "Character Copy assignment operator called" << std::endl;
+//	std::cout << "Character Copy assignment operator called" << std::endl;
 	if (this == &other)
 		return (*this);
 	for (int i = 0; i < N; i++)
@@ -113,12 +126,13 @@ std::string const &Character::getName() const
 	return (_name);
 }
 
-/*const AMateria	*Character::getMateria(int idx) const
+void	Character::printChar()
 {
-	if (idx < 0 || idx > 3)
+	for (int i = 0; i < N; i++)
 	{
-		std::cout << "Character " << _name << " does not have such a place in the inventory. You will be returned NULL." << std::endl;
-		return (nullptr);
+		if (!_slots[i])
+			std::cout << "Character " << _name << " in the index " << i << " does not have any Materia. " << std::endl;
+		else
+			std::cout << "Character " << _name << " in the index " << i << " has a Materia of type " << _slots[i]->getType() << ", slot ptr is " << _slots[i] << std::endl;
 	}
-	return (_slots[idx]);
-}*/
+}

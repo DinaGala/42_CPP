@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 18:28:05 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/21 19:13:35 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/21 20:49:03 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
 
-class MateriaSource
+class MateriaSource: public IMateriaSource
 {
 	public:
 		MateriaSource();
@@ -27,6 +27,8 @@ class MateriaSource
 
 		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const &type);
+
+		void	printSrc();
 
 	private:
 		AMateria	*_library[N];
