@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:01:45 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/24 20:50:00 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:16:21 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #define BUREAUCRAT_HPP
 
 # include <iostream>
+# include <string>
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
@@ -33,6 +34,17 @@ class Bureaucrat
 
 		void				plusGrade();
 		void				minusGrade();
+
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
 		
 	private:
 		const std::string 	_name;
