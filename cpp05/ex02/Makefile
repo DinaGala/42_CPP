@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/26 21:01:33 by nzhuzhle          #+#    #+#              #
-#    Updated: 2024/04/26 21:01:38 by nzhuzhle         ###   ########.fr        #
+#    Created: 2024/04/26 21:01:22 by nzhuzhle          #+#    #+#              #
+#    Updated: 2024/04/26 21:01:26 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CPP = c++
 FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
 RM = rm -f
 
-SRC =  main.cpp Bureaucrat.cpp Form.cpp
+SRC =  main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))

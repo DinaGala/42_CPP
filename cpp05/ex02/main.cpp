@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 20:47:27 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/26 20:47:33 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/26 20:53:38 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,32 @@ int	main(int argc, char **argv)
 	try
 	{
 		Bureaucrat	kev("Kevin", 1);
-		Form		A("A", 30, 35);
-		Form		B("B", 1, 1);
+		AForm		A("A", 30, 35);
+		AForm		B("B", 1, 1);
 
 		std::cout << kev << std::endl;
 		kev.minusGrade();
 		std::cout << kev << std::endl;
 		std::cout << A << std::endl;
 		std::cout << B << std::endl;
-		kev.signForm(A);
-		kev.signForm(B);
-		kev.signForm(A);
+		kev.signAForm(A);
+		kev.signAForm(B);
+		kev.signAForm(A);
 		std::cout << std::endl;
 
 		Bureaucrat	stanly("Stanly", 150);
-		Form	C("C", 148, 150);
+		AForm	C("C", 148, 150);
 		std::cout << stanly << std::endl;
 		std::cout << B << std::endl;
-		stanly.signForm(C);
+		stanly.signAForm(C);
 
 		stanly.plusGrade();
 		stanly.plusGrade();
 		stanly.plusGrade();
 		std::cout << stanly << std::endl;
 
-		stanly.signForm(C);
-		stanly.signForm(C);
+		stanly.signAForm(C);
+		stanly.signAForm(C);
 	}
 	catch (std::exception &e) {	
 		std::cout << "Caught an exception: " << e.what() << std::endl;
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	}
 	try
 	{
-		Form	bad("Bad", -250, -151);
+		AForm	bad("Bad", -250, -151);
 	}
 	catch (std::exception &e) {	
 		std::cout << "Caught an exception: " << e.what() << std::endl;
