@@ -2,7 +2,7 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): _name("Unknown"), _grade(150)
+Bureaucrat::Bureaucrat(): _name("Unknown"), _grade(MIN_GRADE)
 {
 //	std::cout << "Bureaucrat Default constructor called" << std::endl;
 }
@@ -10,9 +10,9 @@ Bureaucrat::Bureaucrat(): _name("Unknown"), _grade(150)
 Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name)
 {
 //	std::cout << "Bureaucrat Name constructor called" << std::endl;
-	if (grade > 150)
+	if (grade > MIN_GRADE)
 		throw GradeTooLowException();
-	else if (grade < 1)
+	else if (grade < MAX_GRADE)
 		throw GradeTooHighException();
 	else
 		_grade = grade;
@@ -65,7 +65,7 @@ std::ostream	&operator<<(std::ostream &out, const Bureaucrat &bur)
 
 void	Bureaucrat::plusGrade()
 {
-	if (_grade == 1)
+	if (_grade == MAX_GRADE)
 		throw GradeTooHighException();
 	else
 		_grade--;
@@ -73,7 +73,7 @@ void	Bureaucrat::plusGrade()
 
 void	Bureaucrat::minusGrade()
 {
-	if (_grade == 150)
+	if (_grade == MIN_GRADE)
 		throw GradeTooLowException();
 	else
 		_grade++;
@@ -86,9 +86,14 @@ void	Bureaucrat::signForm(Form &form)
 		form.beSigned(*this);
 		std::cout << _name << " signed a form " << form.getName() << std::endl;
 	}
-	catch(const Form::AlreadySigned & e)
+	catch(std::exception &e)
+	{
+		std::cerr << _name << " couldn't sign a form " << form.getName() << " because " << e.what() << std::endl;
+	}
+	/*catch(const Form::AlreadySigned & e)
 	{
 		std::cerr << _name << " couldn't sign a form " << form.getName() << " because " << e.what() << '\n';
-	}
+	}*/
+
 	
 }

@@ -7,21 +7,44 @@ int	main(int argc, char **argv)
 {
     (void)argc;
 	(void)argv;
+	std::cout << std::endl;
+	
 	try
 	{
 		Bureaucrat	kev("Kevin", 1);
+		Form		A("A", 30, 35);
+		Form		B("B", 1, 1);
+
 		std::cout << kev << std::endl;
 		kev.minusGrade();
 		std::cout << kev << std::endl;
-		kev.plusGrade();
-		kev.plusGrade();
+		std::cout << A << std::endl;
+		std::cout << B << std::endl;
+		kev.signForm(A);
+		kev.signForm(B);
+		kev.signForm(A);
+		std::cout << std::endl;
+
+		Bureaucrat	stanly("Stanly", 150);
+		Form	C("C", 148, 150);
+		std::cout << stanly << std::endl;
+		std::cout << B << std::endl;
+		stanly.signForm(C);
+
+		stanly.plusGrade();
+		stanly.plusGrade();
+		stanly.plusGrade();
+		std::cout << stanly << std::endl;
+
+		stanly.signForm(C);
+		stanly.signForm(C);
 	}
-	catch (const Bureaucrat::GradeTooLowException &e) {	
+	catch (std::exception &e) {	
 		std::cout << "Caught an exception: " << e.what() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooHighException &e) {	
-		std::cout << "Caught an exception: " << e.what() << std::endl;
-	}
+	
+	std::cout << std::endl;
+	
 	try
 	{
 		Bureaucrat	paul("Paul", 150);
@@ -29,22 +52,24 @@ int	main(int argc, char **argv)
 		paul.plusGrade();
 		std::cout << paul << std::endl;
 		paul.minusGrade();
+		std::cout << paul << std::endl;
 		paul.minusGrade();
 	}
-	catch (const Bureaucrat::GradeTooLowException &e) {	
-		std::cout << "Caught an exception: " << e.what() << std::endl;
-	}
-	catch (const Bureaucrat::GradeTooHighException &e) {	
+	catch (std::exception &e) {	
 		std::cout << "Caught an exception: " << e.what() << std::endl;
 	}
 	try
 	{
 		Bureaucrat	don("Donald", 250);
 	}
-	catch (const Bureaucrat::GradeTooLowException &e) {	
+	catch (std::exception &e) {	
 		std::cout << "Caught an exception: " << e.what() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooHighException &e) {	
+	try
+	{
+		Form	bad("Bad", -250, -151);
+	}
+	catch (std::exception &e) {	
 		std::cout << "Caught an exception: " << e.what() << std::endl;
 	}
 	std::cout << std::endl;

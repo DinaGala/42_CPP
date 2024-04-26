@@ -10,7 +10,7 @@ CPP = c++
 FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
 RM = rm -f
 
-SRC =  main.cpp Bureaucrat.cpp
+SRC =  main.cpp Bureaucrat.cpp Form.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))
