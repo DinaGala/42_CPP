@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 21:01:33 by nzhuzhle          #+#    #+#              #
-#    Updated: 2024/04/26 21:01:38 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2024/04/28 21:20:09 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,8 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	@echo "$(YELLOW)Everything has been cleaned.$(BLACK)"
+
+re: fclean all
 
 .PHONY: all clean fclean re dir
 

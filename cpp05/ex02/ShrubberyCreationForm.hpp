@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:00:49 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/26 21:14:53 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/28 21:47:45 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include "AForm.hpp"
 # include <string>
+# include <fstream>
 
 class ShrubberyCreationForm: public AForm
 {
@@ -26,8 +27,13 @@ class ShrubberyCreationForm: public AForm
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &other);
 
+		void	beExecuted() const;
+		std::string	getTarget() const;
+
 	private:
 		std::string	_target;
 };
+
+std::ostream	&operator<<(std::ostream &out, const ShrubberyCreationForm &form);
 
 #endif

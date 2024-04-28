@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/28 21:19:35 by nzhuzhle          #+#    #+#              #
+#    Updated: 2024/04/28 21:19:54 by nzhuzhle         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 
 RED = \033[1;31m
 GREEN = \033[1;32m
@@ -35,6 +47,8 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	@echo "$(YELLOW)Everything has been cleaned.$(BLACK)"
+
+re: fclean all
 
 .PHONY: all clean fclean re dir
 

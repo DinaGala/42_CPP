@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 21:01:22 by nzhuzhle          #+#    #+#              #
-#    Updated: 2024/04/26 21:01:26 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2024/04/28 21:42:18 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ CPP = c++
 FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
 RM = rm -f
 
-SRC =  main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRC =  main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
+PresidentialPardonForm.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))
@@ -46,6 +47,8 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	@echo "$(YELLOW)Everything has been cleaned.$(BLACK)"
+
+re: fclean all
 
 .PHONY: all clean fclean re dir
 

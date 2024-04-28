@@ -32,7 +32,7 @@ impl_template = '''
 
 {class_name}::{class_name}()
 {{
-	std::cout << "{class_name} Default constructor called" << std::endl;
+//	std::cout << "{class_name} Default constructor called" << std::endl;
 }}
 
 //{class_name}::{class_name}(std::string const &type): _type(type)
@@ -42,18 +42,18 @@ impl_template = '''
 
 {class_name}::~{class_name}()
 {{
-	std::cout << "{class_name} Default destructor called" << std::endl;
+//	std::cout << "{class_name} Default destructor called" << std::endl;
 }}
 
 {class_name}::{class_name}(const {class_name} &other)
 {{
-	std::cout << "{class_name} Copy constructor called" << std::endl;
+//	std::cout << "{class_name} Copy constructor called" << std::endl;
 	*this = other;
 }}
 
 {class_name}	&{class_name}::operator=(const {class_name} &other) 
 {{
-	std::cout << "{class_name} Copy assignment operator called" << std::endl;
+//	std::cout << "{class_name} Copy assignment operator called" << std::endl;
 	if (this == &other)
 		return (*this);
 	// ASSIGNMENT HERE

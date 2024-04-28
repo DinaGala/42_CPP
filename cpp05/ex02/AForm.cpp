@@ -81,12 +81,12 @@ void	AForm::beSigned(const Bureaucrat &bur)
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-	return ("The grade is too high! The valid range is from 150 to 1.");
+	return ("The grade is too high!");
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-	return ("The grade is too low! The valid range is from 150 to 1.");
+	return ("The grade is too low!");
 }
 
 const char *AForm::AlreadySignedException::what() const throw()
@@ -94,9 +94,25 @@ const char *AForm::AlreadySignedException::what() const throw()
 	return ("The form is already signed.");
 }
 
+const char *AForm::NotSignedException::what() const throw()
+{
+	return ("The form is not signed yet.");
+}
+
 std::ostream	&operator<<(std::ostream &out, const AForm &form)
 {
-	return (out << "The AForm " << form.getName() << " needs a grade " 
+	return (out << form.getName() << " needs a grade " 
 	<< form.getSignGrade() << " to be signed, a grade " << form.getExecGrade() 
 	<< " to be executed and it is " << (form.getIfSigned() ? "already signed." : "not signed yet."));
 }
+
+void	AForm::execute(Bureaucrat const & executor) const
+{
+	if (!_ifSigned)
+		throw NotSignedException();
+	else if (_execGrade < executor.getGrade())
+		throw GradeTooLowException();
+	else
+		this->beExecuted();
+}
+

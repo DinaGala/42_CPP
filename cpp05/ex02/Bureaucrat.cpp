@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/28 19:03:20 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2024/04/28 21:13:21 by nzhuzhle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
@@ -90,10 +101,17 @@ void	Bureaucrat::signAForm(AForm &form)
 	{
 		std::cerr << _name << " couldn't sign a form " << form.getName() << " because " << e.what() << std::endl;
 	}
-	/*catch(const AForm::AlreadySigned & e)
-	{
-		std::cerr << _name << " couldn't sign a form " << form.getName() << " because " << e.what() << '\n';
-	}*/
+}
 
-	
+void	Bureaucrat::executeForm(AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed a form " << form.getName() << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << _name << " couldn't execute a form " << form.getName() << " because " << e.what() << std::endl;
+	}	
 }

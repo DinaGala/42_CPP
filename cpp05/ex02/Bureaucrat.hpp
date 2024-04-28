@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:01:45 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/26 20:53:05 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/28 19:29:55 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
 		void				minusGrade();
 
 		void				signAForm(AForm &form);
-		
+		void				executeForm(AForm &form);
 		class GradeTooHighException: public std::exception
 		{
 			public:
