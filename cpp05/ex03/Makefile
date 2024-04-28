@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 21:01:22 by nzhuzhle          #+#    #+#              #
-#    Updated: 2024/04/28 22:49:21 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2024/04/28 22:49:27 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 RM = rm -f
 
 SRC =  main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
-PresidentialPardonForm.cpp
+PresidentialPardonForm.cpp Intern.cpp
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))
