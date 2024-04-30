@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 20:47:27 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/26 20:47:33 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:36:10 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ int	main(int argc, char **argv)
 		kev.signForm(A);
 		kev.signForm(B);
 		kev.signForm(A);
+		std::cout << A << std::endl;
 		std::cout << std::endl;
 
 		Bureaucrat	stanly("Stanly", 150);
 		Form	C("C", 148, 150);
 		std::cout << stanly << std::endl;
-		std::cout << B << std::endl;
+		std::cout << C << std::endl;
 		stanly.signForm(C);
 
 		stanly.plusGrade();

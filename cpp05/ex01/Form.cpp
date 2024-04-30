@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:19:34 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/26 20:48:47 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:32:00 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,17 @@ void	Form::beSigned(const Bureaucrat &bur)
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("The grade is too high! The valid range is from 150 to 1.");
+	return ("the grade is too high.");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("The grade is too low! The valid range is from 150 to 1.");
+	return ("the grade is too low.");
 }
 
 const char *Form::AlreadySignedException::what() const throw()
 {
-	return ("The form is already signed.");
+	return ("the form is already signed.");
 }
 
 std::ostream	&operator<<(std::ostream &out, const Form &form)

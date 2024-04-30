@@ -20,7 +20,7 @@ OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
 DEP = $(addprefix $(F_OBJ), $(SRC:.cpp=.d))
 
 $(F_OBJ)%.o: %.cpp Makefile
-	$(CC) $(FLAGS) -I ./ -c $< -o $@
+	$(CPP) $(FLAGS) -I ./ -c $< -o $@
 
 all: dir $(NAME)
 
@@ -39,6 +39,8 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	@echo "$(YELLOW)Everything has been cleaned.$(BLACK)"
+
+re: fclean all
 
 .PHONY: all clean fclean re dir
 
