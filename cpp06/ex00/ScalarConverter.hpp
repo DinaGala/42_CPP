@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 20:36:02 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/01 22:02:42 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/01 22:28:32 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <climits>
 # include <cstdlib>
 # include <stdexcept>
+# include <cmath>
 //# define DBL_MAX std::numeric_limits<double>::max()
 //# define DBL_MIN std::numeric_limits<double>::min()
 

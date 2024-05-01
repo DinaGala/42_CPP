@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:25:29 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/01 22:09:02 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/01 23:32:40 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ input	defType(const std::string & value)
 void 	toChar(const std::string &value, input type)
 {
 //	std::cout << value + " " << type << std::endl;
-	long	nb;
+//	long	nb;
 	
 	std::cout << "Char: ";
 	if (type == CHAR)
@@ -145,11 +145,10 @@ void 	toChar(const std::string &value, input type)
 	{
 		try 
 		{
-			nb = std::stoi(value);
-			if (nb > 31 && nb < 127)
-				std::cout << "'" << static_cast<char>(nb) << "'" << std::endl;
-			else if (nb >= CHAR_MIN && nb <= UCHAR_MAX)
-				std::cout << "Non dispayable" << std::endl;
+			if (std::round(std::stof(value)) > 31 && std::round(std::stof(value)) < 127)
+				std::cout << "'" << static_cast<char>(std::round(std::stof(value))) << "'" << std::endl;
+			else if (std::round(std::stof(value)) >= CHAR_MIN && std::round(std::stof(value)) <= UCHAR_MAX)
+				std::cout << "Non displayable" << std::endl;
 			else
 				throw Input(); 
 		}
@@ -159,7 +158,92 @@ void 	toChar(const std::string &value, input type)
 		}
 	}
 //	std::cout << "'" << static_cast<int>(CHAR_MIN) << "'" << std::endl;
+//	std::cout << std::fixed;
+	// if (LONG_MAX > FLT_MAX)
+	// 	std::cout << "INT" << std::endl;
+	// else
+	// 	std::cout << "FLOAT" << std::endl;
+}
 
+void 	toInt(const std::string &value, input type)
+{
+//	std::cout << value + " " << type << std::endl;
+//	long	nb;
+	
+	std::cout << "Int: ";
+	if (type == CHAR)
+		std::cout << static_cast<int>(value.at(1)) << std::endl;
+	else if ((type == INT || type == FLT || type == DBL) && std::round(std::stod(value)) <= INT_MAX && std::round(std::stod(value)) >= INT_MIN)
+			std::cout << static_cast<int>(std::round(std::stod(value))) << std::endl;
+	else
+		std::cout << "Impossible: overflow" << std::endl;
+	 
+	// else
+	// {
+	// 	try 
+	// 	{
+	// 		nb = std::stoi(value);
+	// 		if (nb > 31 && nb < 127)
+	// 			std::cout << "'" << static_cast<char>(nb) << "'" << std::endl;
+	// 		else if (nb >= CHAR_MIN && nb <= UCHAR_MAX)
+	// 			std::cout << "Non dispayable" << std::endl;
+	// 		else
+	// 			throw Input(); 
+	// 	}
+	// 	catch (const std::exception &e)
+	// 	{
+	// 		std::cout << "Impossible" << std::endl;
+	// 	}
+	// }
+//	std::cout << "'" << static_cast<int>(CHAR_MIN) << "'" << std::endl;
+}
+
+void 	toFloat(const std::string &value, input type)
+{
+//	std::cout << value + " " << type << std::endl;
+//	long	nb;
+	
+	std::cout << "Float: ";
+	try
+	{
+		if (type == CHAR)
+			std::cout << static_cast<int>(value.at(1)) << ".0f" << std::endl;
+		else if (type == INT)
+			std::cout << std::stof(value) << ".0f" << std::endl;
+		else if (type == DBL)
+			std::cout << std::stof(value) << ".0f" << std::endl; 
+		else
+			std::cout << value << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Impossible: overflow" << '\n';
+	}
+}
+
+void 	toDbl(const std::string &value, input type)
+{
+//	std::cout << value + " " << type << std::endl;
+//	long	nb;
+	std::string val = value;
+	val.pop_back();
+
+	std::cout << "Double: ";
+	try
+	{
+		if (type == CHAR)
+			std::cout << static_cast<int>(value.at(1)) << ".0" << std::endl;
+		else if (type == INT)
+			std::cout << std::stod(value) << ".0" << std::endl;
+		else if (type == FLT)
+			std::cout << val << std::endl;
+		else
+			std::cout << value << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Impossible" << '\n';
+	}
 }
 
 void	ScalarConverter::convert( const std::string & value )
@@ -170,9 +254,9 @@ void	ScalarConverter::convert( const std::string & value )
 		type = defType(value);
 		std::cout << type << std::endl;
 		toChar(value, type);
-		// toInt(value, type);
-		// toFloat(value, type);
-		// toDbl(value, type);
+		toInt(value, type);
+		toFloat(value, type);
+		toDbl(value, type);
 	}
 	catch(const std::exception& e)
 	{
