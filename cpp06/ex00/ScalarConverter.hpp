@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 20:36:02 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/04/30 21:17:19 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/01 19:03:03 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,17 @@
 # include <iostream>
 # include <cfloat>
 # include <climits>
+# include <cstdlib>
 //# define DBL_MAX std::numeric_limits<double>::max()
 //# define DBL_MIN std::numeric_limits<double>::min()
+
+enum	input
+{
+	CHAR,
+	INT,
+	FLT,
+	DBL
+};
 
 class ScalarConverter
 {
@@ -30,5 +39,12 @@ class ScalarConverter
 		ScalarConverter& operator=(const ScalarConverter &other);
 
 };
+
+class Input: public std::exception
+{
+	public:
+		const char	*what() const throw();
+};
+
 
 #endif
