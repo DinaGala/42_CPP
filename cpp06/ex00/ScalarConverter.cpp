@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:25:29 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/01 23:32:40 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/02 22:31:03 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,35 @@ ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &other)
 	return (*this);
 }
 
+// std::string	trimVal(const std::string &value, input type)
+// {
+// 	std::string fin;
+// 	int			i = -1;
+// 	int			j = 0;
+
+// 	if (type < 2)
+// 		return (NULL);
+// 	while (value[++i] && value[i] != '.')
+// 		fin[i] = value[i];
+// 	fin[i] = value[i];
+// 	while (++j < 5 && value[i + j] && std::isdigit(value[i + j]))
+// 		fin[i + j] = value[i + j];
+// 	while (j < 5)
+// 	{
+// 		fin[i + j] = '0';
+// 		j++;
+// 	}
+// 	if (type == FLT)
+// 	{
+// 		fin[i + j] = 'f';
+// 		j++;
+// 	}
+// 	fin[i + j] = '\0';
+// 	return (fin);
+// }
+
 bool	isChar(const std::string & value)
 {
-//	std::cout << value << std::endl;
 	if (value.length() == 3 && value.at(0) == '\'' && value.at(2) == '\'' && value[1] > 31 && value[1] < 127)
 		return true;
 	return (false);
@@ -37,9 +63,8 @@ bool	isChar(const std::string & value)
 
 bool	isInt(const std::string & value)
 {
-//	std::cout << value << std::endl;
-//	return false;
 	int	i = 0;
+
 	if (value[1] && value[0] == '0')
 		return (false);
 	if (value[0] == '-' && value[1] && value[1] != '0')
@@ -59,9 +84,9 @@ bool	isInt(const std::string & value)
 
 bool	isFloat(const std::string & value)
 {
-//	std::cout << "isfloat" << std::endl;
 	int		i = 0;
 	bool	pt = false;
+
 	if (value == "-inff" || value == "+inff" || value == "nanf")
 		return (true);
 	if (value[0] == '-' && value[1] && std::isdigit(value[1]))
@@ -79,7 +104,8 @@ bool	isFloat(const std::string & value)
 	try  {
 		std::stof(value);
 	}
-	catch (const std::exception &e) {
+	catch (const std::invalid_argument& e) 
+	{
 		return (false);
 	}
 	return (true);
@@ -87,9 +113,9 @@ bool	isFloat(const std::string & value)
 
 bool	isDbl(const std::string & value)
 {
-//		std::cout << "is double" << std::endl;
 	int		i = 0;
 	bool	pt = false;
+
 	if (value == "-inf" || value == "+inf" || value == "nan")
 		return (true);
 	if (value[0] == '-' && value[1] && std::isdigit(value[1]))
@@ -107,7 +133,7 @@ bool	isDbl(const std::string & value)
 	try  {
 		std::stod(value);
 	}
-	catch (const std::exception &e) {
+	catch (const std::invalid_argument& e) {
 		return (false);
 	}
 	return (true);
@@ -135,9 +161,6 @@ input	defType(const std::string & value)
 
 void 	toChar(const std::string &value, input type)
 {
-//	std::cout << value + " " << type << std::endl;
-//	long	nb;
-	
 	std::cout << "Char: ";
 	if (type == CHAR)
 		std::cout << value << std::endl;
@@ -157,19 +180,10 @@ void 	toChar(const std::string &value, input type)
 			std::cout << "Impossible" << std::endl;
 		}
 	}
-//	std::cout << "'" << static_cast<int>(CHAR_MIN) << "'" << std::endl;
-//	std::cout << std::fixed;
-	// if (LONG_MAX > FLT_MAX)
-	// 	std::cout << "INT" << std::endl;
-	// else
-	// 	std::cout << "FLOAT" << std::endl;
 }
 
 void 	toInt(const std::string &value, input type)
 {
-//	std::cout << value + " " << type << std::endl;
-//	long	nb;
-	
 	std::cout << "Int: ";
 	if (type == CHAR)
 		std::cout << static_cast<int>(value.at(1)) << std::endl;
@@ -177,43 +191,24 @@ void 	toInt(const std::string &value, input type)
 			std::cout << static_cast<int>(std::round(std::stod(value))) << std::endl;
 	else
 		std::cout << "Impossible: overflow" << std::endl;
-	 
-	// else
-	// {
-	// 	try 
-	// 	{
-	// 		nb = std::stoi(value);
-	// 		if (nb > 31 && nb < 127)
-	// 			std::cout << "'" << static_cast<char>(nb) << "'" << std::endl;
-	// 		else if (nb >= CHAR_MIN && nb <= UCHAR_MAX)
-	// 			std::cout << "Non dispayable" << std::endl;
-	// 		else
-	// 			throw Input(); 
-	// 	}
-	// 	catch (const std::exception &e)
-	// 	{
-	// 		std::cout << "Impossible" << std::endl;
-	// 	}
-	// }
-//	std::cout << "'" << static_cast<int>(CHAR_MIN) << "'" << std::endl;
 }
 
 void 	toFloat(const std::string &value, input type)
 {
-//	std::cout << value + " " << type << std::endl;
-//	long	nb;
-	
 	std::cout << "Float: ";
 	try
 	{
 		if (type == CHAR)
-			std::cout << static_cast<int>(value.at(1)) << ".0f" << std::endl;
+			std::cout << static_cast<int>(value.at(1)) << ".000000f" << std::endl;
 		else if (type == INT)
-			std::cout << std::stof(value) << ".0f" << std::endl;
-		else if (type == DBL)
-			std::cout << std::stof(value) << ".0f" << std::endl; 
+			std::cout << static_cast<double>(std::stoi(value)) << "f" << std::endl;
+		else if (value == "+inf" || value == "+inff")
+			std::cout << "+inff" << std::endl;
 		else
-			std::cout << value << std::endl;
+		{
+			std::stof(value);
+			std::cout << std::stod(value) << "f" << std::endl;
+		}
 	}
 	catch(const std::exception& e)
 	{
@@ -223,22 +218,17 @@ void 	toFloat(const std::string &value, input type)
 
 void 	toDbl(const std::string &value, input type)
 {
-//	std::cout << value + " " << type << std::endl;
-//	long	nb;
-	std::string val = value;
-	val.pop_back();
-
 	std::cout << "Double: ";
 	try
 	{
 		if (type == CHAR)
-			std::cout << static_cast<int>(value.at(1)) << ".0" << std::endl;
+			std::cout << static_cast<int>(value.at(1)) << ".000000" << std::endl;
+		else if (value == "+inf" || value == "+inff")
+			std::cout << "+inf" << std::endl;
 		else if (type == INT)
-			std::cout << std::stod(value) << ".0" << std::endl;
-		else if (type == FLT)
-			std::cout << val << std::endl;
+			std::cout << static_cast<double>(std::stoi(value)) << std::endl;
 		else
-			std::cout << value << std::endl;
+			std::cout << std::stod(value) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -249,10 +239,11 @@ void 	toDbl(const std::string &value, input type)
 void	ScalarConverter::convert( const std::string & value )
 {
 	input	type;
+
 	try
 	{
 		type = defType(value);
-		std::cout << type << std::endl;
+		std::cout << std::fixed;
 		toChar(value, type);
 		toInt(value, type);
 		toFloat(value, type);
@@ -261,8 +252,6 @@ void	ScalarConverter::convert( const std::string & value )
 	catch(const std::exception& e)
 	{
 		std::cerr << "Caught an exception: " << e.what() << '\n';
-//		return ;
 	}
-//	std::cout << value << std::endl;
-
+	std::cout << "\n -------------------------- \n" << std::endl;
 }
