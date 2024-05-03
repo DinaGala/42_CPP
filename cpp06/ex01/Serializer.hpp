@@ -6,12 +6,12 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:40:02 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/03 14:45:44 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/03 18:24:41 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+# define SERIALIZER_HPP
 
 # include <iostream>
 

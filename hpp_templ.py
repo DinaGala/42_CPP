@@ -4,7 +4,7 @@ import sys
 # Define the class template
 class_template = '''
 #ifndef {class_name_upper}_HPP
-#define {class_name_upper}_HPP
+# define {class_name_upper}_HPP
 
 # include <iostream>
 
