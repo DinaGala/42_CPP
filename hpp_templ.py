@@ -8,7 +8,6 @@ class_template = '''
 
 # include <iostream>
 
-
 class {class_name}
 {{
 	public:
