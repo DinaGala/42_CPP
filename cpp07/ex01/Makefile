@@ -7,7 +7,7 @@ BLACK = \033[0;39m
 
 NAME = Iter
 CPP = c++
-FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
+FLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 RM = rm -f
 
 SRC =  main.cpp
