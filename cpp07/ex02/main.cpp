@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 17:25:44 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/05 18:18:27 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/05 18:23:45 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ int main(int, char**)
         std::cerr << e.what() << "\n\n";
     }
 
-	Array<double>	zero(0);
+	Array<int>	zero(0);
+	numbers = zero;
 
     delete [] mirror;
     return 0;
