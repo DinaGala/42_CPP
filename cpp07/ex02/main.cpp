@@ -6,11 +6,13 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 17:25:44 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/05 18:12:51 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/05 18:18:27 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
+#include <ctime>
+#include <cstdlib>
 
 #define MAX_VAL 5
 
