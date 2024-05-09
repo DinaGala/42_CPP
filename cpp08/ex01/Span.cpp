@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 21:22:22 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/08 22:29:05 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:54:22 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Span::Span(): _n(0)
 
 Span::Span(unsigned int lim): _n(lim)
 {
-	std::cout << "Span constructor called" << std::endl;
+//	std::cout << "Span constructor called" << std::endl;
 }
 
 Span::~Span()
@@ -40,9 +40,7 @@ Span	&Span::operator=(const Span &other)
 		return (*this);
 	_n = other._n;
 	_cont.clear();
-	std::copy(other._cont.begin(), other._cont.begin() + _n, std::back_inserter(_cont));
-	// for (int i = 0; i < _n; i++)
-	// 	_cont.push_back(other._cont[i]);
+	std::copy(other._cont.begin(), other._cont.end(), std::back_inserter(_cont));
 	return (*this);
 }
 
@@ -58,7 +56,8 @@ void	Span::addNumbers(int num[], int size)
 {
 	try
 	{
-		std::for_each(num, num + size, [this](int x) { addNumber(x); });
+		for (int i = 0; i < size; i++)
+			addNumber(num[i]);
 	}
 	catch(const std::exception& e)
 	{
@@ -70,8 +69,8 @@ void	Span::addNumbers(int start, int end, int pace)
 {
 	try
 	{
-		for (; start < end; start += pace)
-			addNumber(start);
+		for (int i = start; i < end; i += pace)
+			addNumber(i);
 	}
 	catch(const std::exception& e)
 	{
@@ -83,5 +82,38 @@ int		Span::longestSpan()
 {
 	if (_cont.size() < 2)
 		throw std::length_error("Not enough elements");
-	return (std::max_element(_cont.begin(), _cont.end()) - std::min_element(_cont.begin(), _cont.end()));
+	return (*(std::max_element(_cont.begin(), _cont.end())) - *(std::min_element(_cont.begin(), _cont.end())));
+}
+
+int		Span::shortestSpan()
+{
+	std::vector<int>	sorted = _cont;	
+	std::vector<int>	diff(_cont.size());
+
+	if (_cont.size() < 2)
+		throw std::length_error("Not enough elements");
+	std::sort(sorted.begin(), sorted.end());
+	std::adjacent_difference(sorted.begin(), sorted.end(), diff.begin());
+	return (*(std::min_element(diff.begin() + 1, diff.end())));
+}
+
+std::vector<int>	Span::getCont() const
+{
+	return (_cont);
+}
+
+unsigned int	Span::getN() const
+{
+	return (_n);
+}
+
+std::ostream	&operator<<(std::ostream &out, const Span &sp)
+{
+	std::vector<int>	copy = sp.getCont();
+
+	out << "{ ";
+	for (std::vector<int>::iterator it = copy.begin(); it != copy.end(); it++)
+		out << *it << " ";
+	out << "}, size is: " << sp.getN();
+	return (out);
 }

@@ -7,12 +7,9 @@ class_template = '''
 #include "{class_name}.hpp"
 
 
-int	main(int argc, char **argv)
+int	main(int, char **)
 {{
     {class_name}	VAR;
-
-	(void)argc;
-	(void)argv;
 
 	std::cout << std::endl;
 	
