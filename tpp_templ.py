@@ -38,7 +38,7 @@ template <typename T>
 //	std::cout << "{class_name} Default constructor called" << std::endl;
 }}
 
-template <typename T>
+//template <typename T>
 //{class_name}<T>::{class_name}(std::string const &type): _type(type)
 //{{
 //	std::cout << "{class_name} Name constructor called" << std::endl;
