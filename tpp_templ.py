@@ -58,7 +58,7 @@ template <typename T>
 }}
 
 template <typename T>
-{class_name}<T>	&{class_name}::operator=(const {class_name}<T> &other) 
+{class_name}<T>	&{class_name}<T>::operator=(const {class_name}<T> &other) 
 {{
 //	std::cout << "{class_name} Copy assignment operator called" << std::endl;
 	if (this == &other)

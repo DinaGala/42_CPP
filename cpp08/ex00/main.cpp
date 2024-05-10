@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 20:32:17 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/08 20:32:22 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/09 21:25:53 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 
 	try
 	{
-		std::cout << easyfind(cont, 8) << std::endl;
+		std::cout << easyfind(cont, 2) << std::endl;
 	}
 	catch (std::exception &e)
 	{
