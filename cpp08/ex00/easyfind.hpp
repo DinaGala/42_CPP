@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 20:11:41 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/09 21:26:21 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:40:10 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 # include <iostream>
 # include <vector>
 # include <algorithm>
+# include <list>
+# include <set>
 
 template <typename T>
 int	easyfind(T &cont, int val)
 {
-	std::vector<int>::iterator	it = std::find(cont.begin(), cont.end(), val);
+	typename T::iterator	it = std::find(cont.begin(), cont.end(), val);
 
 	if (it == cont.end())
 		throw std::out_of_range("Value not found");

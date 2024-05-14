@@ -70,6 +70,7 @@
 		"__memory": "cpp",
 		"*.tpp": "c",
 		"numeric": "cpp",
-		"list": "cpp"
+		"list": "cpp",
+		"set": "cpp"
 	}
 }
