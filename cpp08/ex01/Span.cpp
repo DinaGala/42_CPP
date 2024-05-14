@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 21:22:22 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/09 20:54:22 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:01:42 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,23 +78,24 @@ void	Span::addNumbers(int start, int end, int pace)
 	}
 }
 
-int		Span::longestSpan()
+long long		Span::longestSpan()
 {
 	if (_cont.size() < 2)
 		throw std::length_error("Not enough elements");
-	return (*(std::max_element(_cont.begin(), _cont.end())) - *(std::min_element(_cont.begin(), _cont.end())));
+	return ((long long)*(std::max_element(_cont.begin(), _cont.end())) - (long long)*(std::min_element(_cont.begin(), _cont.end())));
 }
 
-int		Span::shortestSpan()
+long long		Span::shortestSpan()
 {
-	std::vector<int>	sorted = _cont;	
-	std::vector<int>	diff(_cont.size());
-
+	std::vector<long long>	sorted(_cont.size());	
+	std::vector<long long>	diff(_cont.size());
 	if (_cont.size() < 2)
 		throw std::length_error("Not enough elements");
+	std::copy(_cont.begin(), _cont.end(), sorted.begin());
 	std::sort(sorted.begin(), sorted.end());
 	std::adjacent_difference(sorted.begin(), sorted.end(), diff.begin());
-	return (*(std::min_element(diff.begin() + 1, diff.end())));
+	
+	return ((long long)*(std::min_element(diff.begin() + 1, diff.end())));
 }
 
 std::vector<int>	Span::getCont() const

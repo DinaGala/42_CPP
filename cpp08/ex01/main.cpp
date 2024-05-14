@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 20:47:33 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/09 20:55:32 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:02:25 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int, char **)
 	try
 	{
 		sp.addNumber(-6);
-		sp.addNumber(-3);
+		sp.addNumber(-2147483648);
 		sp.addNumber(17);
-		sp.addNumber(9);
+		sp.addNumber(2147483647);
 		sp.addNumber(11);
 		sp.addNumber(1199);
 	}

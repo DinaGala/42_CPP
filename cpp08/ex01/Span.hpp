@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 20:38:18 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/09 19:33:26 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:50:07 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class Span
 		void	addNumber(int num);
 		void	addNumbers(int arr[], int size);
 		void	addNumbers(int start, int end, int pace);
-		int		shortestSpan();
-		int		longestSpan();
+		long long		shortestSpan();
+		long long		longestSpan();
 
 		std::vector<int>	getCont() const;
 		unsigned int		getN() const;

@@ -71,6 +71,7 @@
 		"*.tpp": "c",
 		"numeric": "cpp",
 		"list": "cpp",
-		"set": "cpp"
+		"set": "cpp",
+		"__tree": "cpp"
 	}
 }
