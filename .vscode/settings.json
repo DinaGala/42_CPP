@@ -73,6 +73,13 @@
 		"list": "cpp",
 		"set": "cpp",
 		"__tree": "cpp",
-		"map": "cpp"
+		"map": "cpp",
+		"clocale": "cpp",
+		"*.tcc": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp",
+		"random": "cpp",
+		"numbers": "cpp",
+		"ranges": "cpp"
 	}
 }

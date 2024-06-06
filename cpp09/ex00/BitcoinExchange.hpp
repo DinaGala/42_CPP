@@ -20,11 +20,22 @@
 # include <string>
 # include <sstream>
 # include <cmath>
-# include <climits>
+# include <cmath>
+# include <ctime>
+# include <limits>
+# include <utility>
 # include <cfloat>
 # include <cstdlib>
 # include <stdexcept>
 # include <algorithm>
+
+typedef struct s_dt
+{
+	int	year;
+	int	mth;
+	int	day;
+	int	total;
+} t_dt;
 
 class BitcoinExchange
 {
@@ -32,14 +43,16 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange &other);
 		BitcoinExchange& operator=(const BitcoinExchange &other);
 
-		std::map<std::string, double>	_data;
+		std::map<t_dt, double>	_data;
 		
-		void							_saveCSV();
-		void							_readLine();
-	//	std::map<std::string, double>	_getLine();
-		double							_getVal(const std::string &date) const;
-		double 							_sToF(const std::string& str);
-//		void	_checkDate(const std::string& str);
+		void		_saveCSV();
+		void		_readLine(std::string &line);
+		void		_firstLine(const std::string &line);
+		t_dt		_saveDate(const std::string &str);
+		double 		_sToF(const std::string& str);
+		std::string	_checkDate(std::string& str);
+		void		_checkYmd(int year, int mth, int day);
+		double		_getVal(const std::string &date);
 
 	public:
 		BitcoinExchange();
