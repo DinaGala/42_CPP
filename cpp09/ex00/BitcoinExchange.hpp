@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nzhuzhle <nzhuzhle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 19:49:58 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/05/20 23:07:58 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:01:54 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <fstream>
 # include <string>
 # include <sstream>
-# include <cmath>
 # include <cmath>
 # include <ctime>
 # include <limits>
