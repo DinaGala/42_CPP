@@ -32,13 +32,19 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &other)
 std::string	trimStr(std::string& str)
 {
 	size_t start = str.find_first_not_of(" \t\r");
-    if (start != std::string::npos)
-        str = str.substr(start);
-	
-	start = str.find_last_not_of(" \t\r\n");
-    if (start != std::string::npos) 
-       str = str.substr(0, start + 1);
+	size_t end = str.find_last_not_of(" \t\r\n");
+	 if (start != std::string::npos)
+       str = str.substr(start, end + start + 1);
 	return (str);
+}
+
+bool	operator<(const t_dt &t1, const t_dt &t2)
+{
+	if (t1.year < t2.year)
+		return (true);
+	if (t1.year == t2.year && t1.total <= t2.total)
+		return (true);
+	return (false);
 }
 
 
@@ -52,7 +58,7 @@ void	BitcoinExchange::_checkYmd(int year, int mth, int day)
 		throw std::out_of_range("Invalid date: Month out of range");
 	if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
 		inmth[1] = 29;	
-	if (day < 1 || day > inmth[mth])
+	if (day < 1 || day > inmth[mth - 1])
 		throw std::out_of_range("Invalid date: Day out of range");
 }
 
@@ -91,9 +97,9 @@ t_dt	BitcoinExchange::_saveDate(const std::string &str)
 	t_dt	dt;
 
 	dt.year = std::atoi(str.substr(0, 4).c_str());
-	dt.mth = std::atoi(str.substr(5, 2).c_str());
-	dt.day = std::atoi(str.substr(8, 2).c_str());
-	dt.total = (dt.mth - 1) * 31 + dt.day;
+	int 	mth = std::atoi(str.substr(5, 2).c_str());
+	int		day = std::atoi(str.substr(8, 2).c_str());
+	dt.total = (mth - 1) * 31 + day;
 	return (dt);
 }
 
@@ -105,9 +111,7 @@ double	BitcoinExchange::_getVal(const std::string &date)
 	while (it != _data.rend())
 	{
 		t_dt baseDate = (*it).first;
-		if (baseDate.year < myDate.year)
-			return ((*it).second);
-		if ((baseDate.year == myDate.year) && (baseDate.total <= myDate.total))
+		if (baseDate < myDate)
 			return ((*it).second);
 		it++;
 	}
@@ -126,7 +130,7 @@ void	BitcoinExchange::_readLine(std::string &line)
 	catch(const std::exception& e) {
 		throw std::out_of_range("Error: bad input => " + line);
 	}
-
+	str.erase(0, 10);
 	str = trimStr(str);
 	if (str.empty() || str[0] != '|')
 		throw std::out_of_range("Error: bad input => " + line);
@@ -140,6 +144,8 @@ void	BitcoinExchange::_readLine(std::string &line)
 	{
 		if (i > 0 && !dot && str[i] == '.')
 			dot++;
+		else if (i == 0 && str[i] == '-')
+			continue ;
 		else if (!std::isdigit(str[i]))
 			throw std::out_of_range("Error: bad input => " + line);
 	}
@@ -151,7 +157,7 @@ void	BitcoinExchange::_readLine(std::string &line)
 		throw std::out_of_range("Error: too large a number");
 
 	double	val = _getVal(date);
-	std::cout << date << " => " << str + " " << rate * val << std::endl;
+	std::cout << date << " => " << str + " = " << rate * val << std::endl;
 }
 
 
@@ -183,13 +189,14 @@ void	BitcoinExchange::_saveCSV()
 	base.close();
 }
 
-void	BitcoinExchange::btc(std::string file)
+void	BitcoinExchange::btc(char *file)
 {
 	_saveCSV();
 
-	std::ifstream	input(file);
+	std::ifstream	input;
 	std::string		line;
 
+	input.open(file);
 	if (!input.is_open())
 		throw std::runtime_error("Error opening input file.");
 	if (!std::getline(input, line))
@@ -206,4 +213,5 @@ void	BitcoinExchange::btc(std::string file)
 			std::cerr << e.what() << '\n';
 		}
 	}
+	input.close();
 }

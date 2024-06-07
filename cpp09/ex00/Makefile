@@ -7,7 +7,7 @@ BLACK = \033[0;39m
 
 NAME = btc
 CPP = c++
-FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 
+FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -fsanitize=address
 RM = rm -f
 
 SRC =  main.cpp BitcoinExchange.cpp

@@ -32,8 +32,6 @@
 typedef struct s_dt
 {
 	int	year;
-	int	mth;
-	int	day;
 	int	total;
 } t_dt;
 
@@ -57,7 +55,7 @@ class BitcoinExchange
 	public:
 		BitcoinExchange();
 		~BitcoinExchange();
-		void	btc(std::string file);
+		void	btc(char *file);
 };
 
 #endif

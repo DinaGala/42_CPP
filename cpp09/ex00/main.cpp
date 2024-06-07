@@ -16,11 +16,11 @@
 int	main(int ac, char **av)
 {
 	BitcoinExchange	mybtc;
-
-	(void)av;
+	
 	try {
 		if (ac != 2) 
 			throw std::invalid_argument("Invalid number of arguments. Introduce one agrument [exchanges file]");
+	//	std::string		file = av[1];
 		mybtc.btc(av[1]);
 	}
 	catch (std::exception &e) {
