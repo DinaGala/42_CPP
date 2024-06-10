@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 20:10:44 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2024/06/07 21:26:07 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2024/06/10 18:28:19 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <deque>
 # include <string>
 # include <climits>
+# include <ctime>
+# include <cstdlib>
 
 
 class PmergeMe
@@ -28,23 +30,30 @@ class PmergeMe
 		~PmergeMe();
 		PmergeMe(int ac, char **av);
 
-
 		const std::deque<int>	getInit() const;
 		const std::deque<int>	getDcont() const;
-		const std::list<int>	getLcont() const;
-		const int	getDtime() const;
-		const int	getLtime() const;
+		std::list<int>			getLcont() const;
+		double					getDtime() const;
+		double					getLtime() const;
 
 	private:
 		std::deque<int>		_init;
 		std::deque<int>		_dcont;
 		std::list<int>		_lcont;
-		int					_dtime;
-		int					_ltime;
+		double				_dtime;
+		double				_ltime; 
 
 		void				_readInput(int ac, char **av);
 		void	 			_sortDQ(int ac, char **av);
 		void	 			_sortLST(int ac, char **av);
+
+		std::deque<int>		_dqMergeSort(std::deque<int> temp);
+		std::deque<int>		_dqMerge(std::deque<int> left, std::deque<int> right);
+		void				_dqInsertSort(int el);
+
+		std::list<int>		_lstMergeSort(std::list<int> temp);
+		std::list<int>		_lstMerge(std::list<int> left, std::list<int> right);
+		void				_lstInsertSort(int el);
 
 		PmergeMe();
 		PmergeMe(const PmergeMe &other);
@@ -52,5 +61,7 @@ class PmergeMe
 };
 
 std::ostream	&operator<<(std::ostream &out, const PmergeMe &val);
+std::ostream	&operator<<(std::ostream &out, const std::deque<int> &val);
+void	printList(std::list<int> val);
 
 #endif
